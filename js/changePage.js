@@ -106,14 +106,16 @@ function showProducts(productId, currentImg) {
 	currentImg = currentImg || 1;
 	var img = list[currentImg -1];
 	var picIndex = currentImg > 5 ? currentImg - 5 : currentImg;
+	$(".product-preview .pic").removeClass('animated bounceIn');
+	$(".product-preview .pic").hide();
 	$(".product-preview .pic" + picIndex).html('<img src="' + img + '">');
-	$(".product-preview .pic").fadeOut('slow');
-	$(".product-preview .pic" + picIndex).fadeIn('slow');
+	$(".product-preview .pic" + picIndex).addClass('animated bounceIn');
+	$(".product-preview .pic" + picIndex).show();
 
 	if (timeoutId) {
 		window.clearTimeout(timeoutId);
 	}
 	timeoutId = setTimeout(function(){
 			showProducts(productId, currentImg + 1);
-		}, 1000);
+		}, 2000);
 }

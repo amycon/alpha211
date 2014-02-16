@@ -37,6 +37,11 @@ float:left
 .product-preview .pic img {
 	width: 100%;
 	height: auto;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #eee;
 }
 
 .product-preview .pic.pic1 {
@@ -52,11 +57,11 @@ float:left
 }
 
 .product-preview .pic.pic4 {
-	left: 57%;
+	left: 15%;
 }
 
 .product-preview .pic.pic5 {
-	left: 15%;
+	left: 57%;
 }
 
 #swiffycontainer {
