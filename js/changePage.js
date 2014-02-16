@@ -14,9 +14,6 @@
 	$("#p1_2").delay(3900);
 	$('#p1_2').fadeOut('slow');
   
-
-	
-  
    }
 //Hide all pages
 	function hideAnyPage(){
@@ -84,3 +81,39 @@
 			$("#contactusPage").delay(1300);
 			$("#contactusPage").fadeIn("slow");
 		}	
+		
+var productsArray = {
+				"title #1" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg", "images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #2" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #3" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #4" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #5" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #6" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"], 
+				"title #7" : ["images/Product/p1_1.png", "images/Product/p1_2.jpg", "images/Product/p1_3.jpg", "images/Product/p1_4.jpg", "images/Product/p1_5.jpg"]
+				};
+				
+var timeoutId = null;
+
+function showProducts(productId, currentImg) {
+	$(".product-preview").show();
+	var list = productsArray[productId];
+	if (currentImg > list.length) {
+		$(".product-preview").hide();
+		window.clearTimeout(timeoutId);
+		timeoutId = null;
+		return;
+	}
+	currentImg = currentImg || 1;
+	var img = list[currentImg -1];
+	var picIndex = currentImg > 5 ? currentImg - 5 : currentImg;
+	$(".product-preview .pic" + picIndex).html('<img src="' + img + '">');
+	$(".product-preview .pic").fadeOut('slow');
+	$(".product-preview .pic" + picIndex).fadeIn('slow');
+
+	if (timeoutId) {
+		window.clearTimeout(timeoutId);
+	}
+	timeoutId = setTimeout(function(){
+			showProducts(productId, currentImg + 1);
+		}, 1000);
+}

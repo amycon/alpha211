@@ -15,6 +15,49 @@ float:left
 
 }
 
+.product-preview {
+	position: absolute;
+	margin-left: auto;
+	top: 30px;
+	display: none;
+	width: 900px;
+	height: 300px;
+}
+
+.product-preview .pic {
+	width: 25%;
+	/*height: auto;*/
+	margin: 10px 2%;
+	display: none;
+	position: absolute;
+	top: 0;
+	height: 270px;
+}
+
+.product-preview .pic img {
+	width: 100%;
+	height: auto;
+}
+
+.product-preview .pic.pic1 {
+	left: 0;
+}
+
+.product-preview .pic.pic2 {
+	left: 35%;
+}
+
+.product-preview .pic.pic3 {
+	left: 70%;
+}
+
+.product-preview .pic.pic4 {
+	left: 57%;
+}
+
+.product-preview .pic.pic5 {
+	left: 15%;
+}
 
 #swiffycontainer {
 	margin-right: auto;
